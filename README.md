@@ -19,7 +19,7 @@ Lorem ipsum dolor sit amet
 Пример  
 3.1415  
 consectetur adipiscing  
--0.001
+-0.001  
 тестовое задание  
 1241254124  
   **Файл** ```in2.txt```:  
