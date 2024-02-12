@@ -14,6 +14,7 @@ public class Main {
 
         boolean shortStatistics = false;
         boolean fullStatistics = false;
+        boolean filePrefixFlag = false;
 
         for (int i = 0; i < args.length; i++) {
             switch (args[i]) {
@@ -21,7 +22,11 @@ public class Main {
                     outputPath = args[++i];
                     break;
                 case "-p":
-                    filePrefix = args[++i];
+                    if (i + 1 < args.length) {
+                        filePrefix = args[++i];
+                    }
+
+                    filePrefixFlag = true;
                     break;
                 case "-a":
                     appendMode = true;
@@ -42,13 +47,21 @@ public class Main {
                 processFile(file);
             }
 
+            if (filePrefixFlag && filePrefix == "") {
+                System.out.println("После -p необходимо указать префикс для конечных файлов");
+                return;
+            }
+
             writeToFile(outputPath, filePrefix + INTEGER_FILE, integerList);
             writeToFile(outputPath, filePrefix + FLOAT_FILE, floatList);
             writeToFile(outputPath, filePrefix + STRING_FILE, stringList);
 
             if (shortStatistics || fullStatistics) {
-               printStatistics(shortStatistics, fullStatistics);
+                printStatistics(shortStatistics, fullStatistics);
             }
+
+            System.out.println("Программа выполнена успешно.");
+
         } catch (IOException e) {
             System.err.println("An error occurred: " + e.getMessage());
         }

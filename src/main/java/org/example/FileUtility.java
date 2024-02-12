@@ -112,7 +112,7 @@ public class FileUtility {
             int maxLength = stringList.stream().mapToInt(String::length).max().orElse(0);
 
             System.out.println("Длина самой короткой строки: " + minLength);
-            System.out.println("Длина самой длинной строки: " + maxLength);
+            System.out.println("Длина самой длинной строки: " + maxLength + "\n");
         }
     }
 
