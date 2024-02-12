@@ -63,7 +63,7 @@ public class Main {
             System.out.println("Программа выполнена успешно.");
 
         } catch (IOException e) {
-            System.err.println("An error occurred: " + e.getMessage());
+            System.err.println("Ошибка произошла с: " + e.getMessage());
         }
     }
 }
