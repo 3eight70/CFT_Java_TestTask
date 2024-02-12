@@ -15,6 +15,7 @@ public class Main {
         boolean shortStatistics = false;
         boolean fullStatistics = false;
         boolean filePrefixFlag = false;
+        boolean appendMode = false;
 
         for (int i = 0; i < args.length; i++) {
             switch (args[i]) {
@@ -52,9 +53,9 @@ public class Main {
                 return;
             }
 
-            writeToFile(outputPath, filePrefix + INTEGER_FILE, integerList);
-            writeToFile(outputPath, filePrefix + FLOAT_FILE, floatList);
-            writeToFile(outputPath, filePrefix + STRING_FILE, stringList);
+            writeToFile(outputPath, filePrefix + INTEGER_FILE, integerList, appendMode);
+            writeToFile(outputPath, filePrefix + FLOAT_FILE, floatList, appendMode);
+            writeToFile(outputPath, filePrefix + STRING_FILE, stringList, appendMode);
 
             if (shortStatistics || fullStatistics) {
                 printStatistics(shortStatistics, fullStatistics);

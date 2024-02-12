@@ -133,7 +133,7 @@ public class FileUtility {
         }
     }
 
-    public static void writeToFile(String outputPath, String fileName, List<String> content) throws IOException {
+    public static void writeToFile(String outputPath, String fileName, List<String> content, boolean appendMode) throws IOException {
         if (!content.isEmpty()) {
             String filePath = Paths.get(outputPath, fileName).toString();
             FileWriter writer = new FileWriter(filePath, appendMode);
